@@ -1,1 +1,60 @@
-# drimtekproject3d-max.github.io
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abrir Instagram</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background-color: #fafafa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .button {
+      background-color: #405de6;
+      color: white;
+      padding: 14px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    p {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Abriendo Instagram...</h1>
+  <p>Si no se abre automáticamente, toca el botón.</p>
+  <a class="button" href="https://www.instagram.com/suprint__online/">Ir al perfil</a>
+
+  <script>
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const ios = /iPad|iPhone|iPod/.test(userAgent);
+    const android = /Android/.test(userAgent);
+
+    const instagramUsername = "suprint__online";
+
+    if (ios) {
+      window.location.href = `instagram://user?username=${instagramUsername}`;
+      setTimeout(() => {
+        window.location.href = `https://www.instagram.com/${instagramUsername}/`;
+      }, 1500);
+    } else if (android) {
+      window.location.href = `intent://instagram.com/_u/${instagramUsername}/#Intent;package=com.instagram.android;scheme=https;end`;
+      setTimeout(() => {
+        window.location.href = `https://www.instagram.com/${instagramUsername}/`;
+      }, 1500);
+    } else {
+      window.location.href = `https://www.instagram.com/${instagramUsername}/`;
+    }
+  </script>
+</body>
+</html>
